@@ -1,0 +1,263 @@
+public class Bullet {
+  float bxA;     //A, or left bullet pos
+  float byA;
+  float bxD;     //D, or right bullet pos
+  float byD;
+  int bulletd = 1;
+  int qq = 1;     //initiating pos of bullet, and speed
+  int qAq = 1;     //reloading purposes
+  int qDq = 1;
+  int goA = 0;
+  int goD = 0;
+  float rise;     //for what direction the ball will be traveling
+  float run;
+
+  void reloadA() {
+    qAq = 1;
+  }
+
+  void reloadD() {
+    qDq = 1;
+  }
+
+  void displayA() {
+    if (mousePressed) {
+      if (mouseButton == LEFT) {
+        goA = 1;
+        if (qAq == 1) {
+          qq = 1;
+          qAq = 0;
+        }
+      }
+    }
+    fill(0);
+    stroke(0);
+    smooth();
+    //slope = ((py-mouseY)/(px-mouseX));
+    if (qq == 1) {
+      rise = py-mouseY;
+      run = px-mouseX;
+      bxA = px;
+      byA = py;
+      qq = 0;
+    }
+    if (abs(rise)<abs(run)) {
+      if (rise>500||rise<-500) {
+        rise = rise / 50;
+        run = run / 50;
+      }
+      if (rise>400||rise<-400) {
+        rise = rise / 40;
+        run = run / 40;
+      }
+      if (rise>300||rise<-300) {
+        rise = rise / 30;
+        run = run / 30;
+      }
+      if (rise>200||rise<-200) {
+        rise = rise / 20;
+        run = run / 20;
+      }
+      if (rise>100||rise<-100) {
+        rise = rise / 10;
+        run = run / 10;
+      }
+      if (rise>90||rise<-90) {
+        rise = rise / 9;
+        run = run / 9;
+      }
+      if (rise>70||rise<-70) {
+        rise = rise / 7;
+        run = run / 7;
+      }
+      if (rise>50||rise<-50) {
+        rise = rise / 5;
+        run = run / 5;
+      }
+      if (rise>30||rise<-30) {
+        rise = rise / 3;
+        run = run / 3;
+      }
+      if (rise>20||rise<-20) {
+        rise = rise / 2;
+        run = run / 2;
+      }
+    }
+    if (abs(rise)>abs(run)) {
+      if (run>500||run<-500) {
+        rise = rise / 50;
+        run = run / 50;
+      }
+      if (run>400||run<-400) {
+        rise = rise / 40;
+        run = run / 40;
+      }
+      if (run>300||run<-300) {
+        rise = rise / 30;
+        run = run / 30;
+      }
+      if (run>200||run<-200) {
+        rise = rise / 20;
+        run = run / 20;
+      }
+      if (run>100||run<-100) {
+        rise = rise / 10;
+        run = run / 10;
+      }
+      if (run>90||run<-90) {
+        rise = rise / 9;
+        run = run / 9;
+      }
+      if (run>70||run<-70) {
+        rise = rise / 7;
+        run = run / 7;
+      }
+      if (run>50||run<-50) {
+        rise = rise / 5;
+        run = run / 5;
+      }
+      if (run>30||run<-30) {
+        rise = rise / 3;
+        run = run / 3;
+      }
+      if (run>20||run<-20) {
+        rise = rise / 2;
+        run = run / 2;
+      }
+    }
+    bxA = bxA - run;
+    byA = byA - rise;
+    ellipse(bxA-10, byA, 3, 3);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  void displayD() {
+    if (mousePressed) {
+      if (mouseButton == RIGHT) {
+        goD = 1;
+        if (qDq == 1) {
+          bulletd = playerd;
+          qq = 1;
+          qDq = 0;
+        }
+      }
+    }
+    fill(0);
+    stroke(0);
+    smooth();
+    if (qq == 1) {
+      rise = py-mouseY;
+      run = px-mouseX;
+      bxD = px;
+      byD = py;
+      qq = 0;
+    }
+    if (abs(rise)<abs(run)) {
+      if (rise>500||rise<-500) {
+        rise = rise / 50;
+        run = run / 50;
+      }
+      if (rise>400||rise<-400) {
+        rise = rise / 40;
+        run = run / 40;
+      }
+      if (rise>300||rise<-300) {
+        rise = rise / 30;
+        run = run / 30;
+      }
+      if (rise>200||rise<-200) {
+        rise = rise / 20;
+        run = run / 20;
+      }
+      if (rise>100||rise<-100) {
+        rise = rise / 10;
+        run = run / 10;
+      }
+      if (rise>90||rise<-90) {
+        rise = rise / 9;
+        run = run / 9;
+      }
+      if (rise>70||rise<-70) {
+        rise = rise / 7;
+        run = run / 7;
+      }
+      if (rise>50||rise<-50) {
+        rise = rise / 5;
+        run = run / 5;
+      }
+      if (rise>30||rise<-30) {
+        rise = rise / 3;
+        run = run / 3;
+      }
+      if (rise>20||rise<-20) {
+        rise = rise / 2;
+        run = run / 2;
+      }
+    }
+    if (abs(rise)>abs(run)) {
+      if (run>500||run<-500) {
+        rise = rise / 50;
+        run = run / 50;
+      }
+      if (run>400||run<-400) {
+        rise = rise / 40;
+        run = run / 40;
+      }
+      if (run>300||run<-300) {
+        rise = rise / 30;
+        run = run / 30;
+      }
+      if (run>200||run<-200) {
+        rise = rise / 20;
+        run = run / 20;
+      }
+      if (run>100||run<-100) {
+        rise = rise / 10;
+        run = run / 10;
+      }
+      if (run>90||run<-90) {
+        rise = rise / 9;
+        run = run / 9;
+      }
+      if (run>70||run<-70) {
+        rise = rise / 7;
+        run = run / 7;
+      }
+      if (run>50||run<-50) {
+        rise = rise / 5;
+        run = run / 5;
+      }
+      if (run>30||run<-30) {
+        rise = rise / 3;
+        run = run / 3;
+      }
+      if (run>20||run<-20) {
+        rise = rise / 2;
+        run = run / 2;
+      }
+    }
+    bxD = bxD - run;
+    byD = byD - rise;
+    ellipse(bxD+10, byD, 3, 3);
+  }
+  
+  void updatePosA(){
+    bxa = bxA;
+    bya = byA;
+  }
+  
+  void updatePosD(){
+    bxd = bxD;
+    byd = byD;
+  }
+}
