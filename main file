@@ -1,0 +1,68 @@
+void setup() {
+  size(800, 600);
+  zombie = new ArrayList();
+}
+Player p1 = new Player();
+Map map1 = new Map();
+Shoot s1 = new Shoot();
+Bars bar = new Bars();
+OldZ oz1 = new OldZ();
+int map = 6;
+int mM = 0;
+int bed = 1;
+float px = 50;     //player location
+float py = 300;
+float dx = 50;     //for detecting player location in map class
+float dy = 300;
+int l = 1;     //for side-scrolling
+int r = 1;
+int u = 1;
+int d = 1;
+int left = 0;     //for moving the player
+int right = 0;
+int up = 0;
+int down = 0;
+int q1 = 1;     //used to reset values one time when new map is loaded
+int playerd = 1;     //player direction-  1=up  2=left  3=down  4=right
+int mA = 0;
+int mD = 0;
+float health = 100;     //player HP
+int bulletsA = 12;//# of bullets in A gun
+int bulletsD = 12;//# of bullets in D gun
+int pL = 0;
+int pR = 0;
+int pU = 1;
+int pD = 0;
+float bxa;     //vars for bullet pos update
+float bya;
+float bxd;
+float byd;
+float angle;     //for what angle the images will be rotated too
+float xval;
+float yval;     //for calculating tan value
+ArrayList zombie;
+int playerSize = 1;
+
+void draw() {
+  map1.check();
+  bar.bulletBar();
+  bar.healthBar();
+  p1.move();
+  p1.display();
+  s1.shoot();
+  if (keyPressed) {
+    if (key == 'p') {
+      zombie.add(new OldZ());
+    }
+  }
+  if (map>=1 && map<=9) {
+    for (int i = zombie.size () - 1; i>= 0; i--) {
+      OldZ oldz = (OldZ) zombie.get(i);
+      oldz.move();
+    }
+    //oz1.move();
+    health = health - .005;
+  }
+  text(px,100,100);
+  text(py,150,100);
+}
