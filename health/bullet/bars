@@ -1,0 +1,26 @@
+public class Bars {
+  
+  
+  void bulletBar() {
+    for(int i = 1; i<=bulletsA; i++){
+      fill(237,208,38);
+      stroke(0);
+      rect(10+(i*10),10,10,20);
+    }
+    for(int i = 1; i<=bulletsD; i++){
+      fill(237,208,38);
+      stroke(0);
+      rect(10+(i*10),30,10,20);
+    }
+  }
+  void healthBar() {
+    noFill();
+    stroke(0);
+    rect(649,9,101,21);
+    for(int i = 0; i<health; i++){
+      fill(255,0,0);
+      noStroke();
+      rect(650+(i),10,1,20);
+    }
+  }
+}
