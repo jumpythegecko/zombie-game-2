@@ -1,0 +1,319 @@
+public class Shoot {
+  int ak47 = 0;
+  int bAm = 0;
+  int bDm = 0;
+  int ckA = 1;
+  int ckD = 1;
+  Bullet b1 = new Bullet();
+  Bullet b2 = new Bullet();
+  Bullet b3 = new Bullet();
+  Bullet b4 = new Bullet();
+  Bullet b5 = new Bullet();
+  Bullet b6 = new Bullet();
+  Bullet b7 = new Bullet();
+  Bullet b8 = new Bullet();
+  Bullet b9 = new Bullet();
+  Bullet b10 = new Bullet();
+  Bullet b11 = new Bullet();
+  Bullet b12 = new Bullet();
+  int s9mm = 0;
+
+  void shoot() {
+    if (mousePressed && (mouseButton == LEFT) && (millis()-mA)>=350) {
+      if (ak47<12) {
+        ak47 = ak47 + 1;
+        mA = millis();
+        bulletsA = bulletsA - 1;
+        ckA = 1;
+      }
+    }
+    if (mousePressed && (mouseButton == RIGHT) && (millis()-mD)>=350) {
+      if (s9mm<12) {
+        s9mm = s9mm + 1;
+        mD = millis();
+        bulletsD = bulletsD - 1;
+        ckD = 1;
+      }
+    }
+    if (keyPressed) {
+      if (key == 'r'||key == 'R') {
+        if (ckD == 1) {
+          bDm = millis();
+          ckD = 0;
+        }
+        if (millis()-bDm>50 && bulletsD<12) {
+          bulletsD++;
+          bDm = millis();
+        }
+        if (bulletsD>=12) {
+          s9mm = 0;
+          b1.reloadD();
+          b2.reloadD();
+          b3.reloadD();
+          b4.reloadD();
+          b5.reloadD();
+          b6.reloadD();
+          b7.reloadD();
+          b8.reloadD();
+          b9.reloadD();
+          b10.reloadD();
+          b11.reloadD();
+          b12.reloadD();
+        }
+        if (ckA == 1) {
+          bAm = millis();
+          ckA = 0;
+        }
+        if (millis()-bAm>50 && bulletsA<12) {
+          bulletsA++;
+          bAm = millis();
+        }
+        if (bulletsA>=12) {
+          ak47 = 0;
+          b1.reloadA();
+          b2.reloadA();
+          b3.reloadA();
+          b4.reloadA();
+          b5.reloadA();
+          b6.reloadA();
+          b7.reloadA();
+          b8.reloadA();
+          b9.reloadA();
+          b10.reloadA();
+          b11.reloadA();
+          b12.reloadA();
+        }
+      }
+    }
+    if (ak47 == 1) {
+      b1.displayA();
+      b1.updatePosA();
+    }
+    if (ak47 == 2) {
+      b1.displayA();
+      b2.displayA();
+      b2.updatePosA();
+    }
+    if (ak47 == 3) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b3.updatePosA();
+    }
+    if (ak47 == 4) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b4.updatePosA();
+    }
+    if (ak47 == 5) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b5.updatePosA();
+    }
+    if (ak47 == 6) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b6.updatePosA();
+    }
+    if (ak47 == 7) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b7.displayA();
+      b7.updatePosA();
+    }
+    if (ak47 == 8) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b7.displayA();
+      b8.displayA();
+      b8.updatePosA();
+    }
+    if (ak47 == 9) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b7.displayA();
+      b8.displayA();
+      b9.displayA();
+      b9.updatePosA();
+    }
+    if (ak47 == 10) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b7.displayA();
+      b8.displayA();
+      b9.displayA();
+      b10.displayA();
+      b10.updatePosA();
+    }
+    if (ak47 == 11) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b7.displayA();
+      b8.displayA();
+      b9.displayA();
+      b10.displayA();
+      b11.displayA();
+      b11.updatePosA();
+    }
+    if (ak47 == 12) {
+      b1.displayA();
+      b2.displayA();
+      b3.displayA();
+      b4.displayA();
+      b5.displayA();
+      b6.displayA();
+      b7.displayA();
+      b8.displayA();
+      b9.displayA();
+      b10.displayA();
+      b11.displayA();
+      b12.displayA();
+      b12.updatePosA();
+    }
+
+
+    if (s9mm == 1) {
+      b1.displayD();
+      b1.updatePosD();
+    }
+    if (s9mm == 2) {
+      b1.displayD();
+      b2.displayD();
+      b2.updatePosD();
+    }
+    if (s9mm == 3) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b3.updatePosD();
+    }
+    if (s9mm == 4) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b4.updatePosD();
+    }
+    if (s9mm == 5) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b5.updatePosD();
+    }
+    if (s9mm == 6) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b6.updatePosD();
+    }
+    if (s9mm == 7) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b7.displayD();
+      b7.updatePosD();
+    }
+    if (s9mm == 8) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b7.displayD();
+      b8.displayD();
+      b8.updatePosD();
+    }
+    if (s9mm == 9) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b7.displayD();
+      b8.displayD();
+      b9.displayD();
+      b9.updatePosD();
+    }
+    if (s9mm == 10) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b7.displayD();
+      b8.displayD();
+      b9.displayD();
+      b10.displayD();
+      b10.updatePosD();
+    }
+    if (s9mm == 11) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b7.displayD();
+      b8.displayD();
+      b9.displayD();
+      b10.displayD();
+      b11.displayD();
+      b11.updatePosD();
+    }
+    if (s9mm == 12) {
+      b1.displayD();
+      b2.displayD();
+      b3.displayD();
+      b4.displayD();
+      b5.displayD();
+      b6.displayD();
+      b7.displayD();
+      b8.displayD();
+      b9.displayD();
+      b10.displayD();
+      b11.displayD();
+      b12.displayD();
+      b12.updatePosD();
+    }
+  }
+}
