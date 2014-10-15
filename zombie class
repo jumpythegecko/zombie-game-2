@@ -17,9 +17,9 @@ public class OldZ {
     
     rotate(angle - (PI/2));
     if (zLife == 1) {     //if zombie is alive
-      PImage ozu = loadImage("oldZU.png");
-      image(ozu, 0, 0);
-      if (l == 1 && r == 1 && u == 1 && d == 1) {
+      PImage ozu = loadImage("oldZU.png");     //loads zombie image
+      image(ozu, 0, 0);     //displays image at the origin (which is at the center of where i want the zombie to be)
+      if (l == 1 && r == 1 && u == 1 && d == 1) {     //allows if not side-scrolling
         if (px>ozx-5) {
           ozx = ozx + abs(run/40);     //moves the zombie twords the player
         }
@@ -36,23 +36,23 @@ public class OldZ {
     }
     if (zLife == 1 && bxa>ozx-12 && bxa<ozx+12 && bya>ozy-12 && bya<ozy+12) {     //bullet A collides with z
       zLife = 0;
-      zm = millis();
+      zm = millis();     //records the milliseconds since the program started right when this happens
     }
     if (zLife == 1 && bxd>ozx-12 && bxd<ozx+12 && byd>ozy-12 && byd<ozy+12) {     //bullet D collides with z
-      zLife = 0;
-      zm = millis();
+      zLife = 0;     //this means dead
+      zm = millis();     //records the milliseconds since the program started right when this happens
     }
-    if (millis()-zm<750 && zLife == 0) {
-      PImage blood = loadImage("blood.png");     //loads blood splater for 3/4 second
+    if (millis()-zm<750 && zLife == 0) {     //if its less than 3/4 of a second since it recorded milliseconds
+      PImage blood = loadImage("blood.png");     //loads blood splater
       image(blood, 0, 0);
     }
-    if(millis()-zm>2000 && zLife == 0){     //creates another zombie
+    if(millis()-zm>2000 && zLife == 0){     //creates another zombie  after 2 seconds of being dead
       ozx = 810;
       ozy = random(10,590);
-      zLife = 1;
+      zLife = 1;     //in a way brings the zombie back to life, and gives it a new pos
     }
     if (zLife == 1 && px>ozx-10 && px<ozx+10 && py>ozy-10 && py<ozy+10){     //drains health if zombie collides with player
-      if(health>0){
+      if(health>0){     //only if health is > than 0
       health = health - 1;
       }
     }
