@@ -1,0 +1,73 @@
+public class OldZ {
+
+  float ozx = 300;     //zombie pos
+  float ozy = 300;
+  int zLife = 1;     //zombie alive or dead
+  float zm = 0;     //millis
+  float rise = 0;     //rise is the change in y
+  float run = 0;     //run is the change in x
+
+  void move() {
+    translate(ozx, ozy);     //puts origin at center of zombie
+    xval = ozx - px;
+    yval = ozy - py;
+    angle = atan2(yval, xval);     //rotates the zombie twords the player
+    rise = ozy-py;     //finds the diffrence between player and zombie
+    run = ozx-px;
+    
+    rotate(angle - (PI/2));
+    if (zLife == 1) {     //if zombie is alive
+      PImage ozu = loadImage("oldZU.png");
+      image(ozu, 0, 0);
+      if (l == 1 && r == 1 && u == 1 && d == 1) {
+        if (px>ozx-5) {
+          ozx = ozx + abs(run/40);     //moves the zombie twords the player
+        }
+        if (px<ozx+5) {
+          ozx = ozx - abs(run/40);     //moves the zombie twords the player
+        }
+        if (py>ozy-5) {
+          ozy = ozy + abs(rise/40);     //moves the zombie twords the player
+        }
+        if (py<ozy+5) {
+          ozy = ozy - abs(rise/40);     //moves the zombie twords the player
+        }
+      }
+    }
+    if (zLife == 1 && bxa>ozx-12 && bxa<ozx+12 && bya>ozy-12 && bya<ozy+12) {     //bullet A collides with z
+      zLife = 0;
+      zm = millis();
+    }
+    if (zLife == 1 && bxd>ozx-12 && bxd<ozx+12 && byd>ozy-12 && byd<ozy+12) {     //bullet D collides with z
+      zLife = 0;
+      zm = millis();
+    }
+    if (millis()-zm<750 && zLife == 0) {
+      PImage blood = loadImage("blood.png");     //loads blood splater for 3/4 second
+      image(blood, 0, 0);
+    }
+    if(millis()-zm>2000 && zLife == 0){     //creates another zombie
+      ozx = 810;
+      ozy = random(10,590);
+      zLife = 1;
+    }
+    if (zLife == 1 && px>ozx-10 && px<ozx+10 && py>ozy-10 && py<ozy+10){     //drains health if zombie collides with player
+      if(health>0){
+      health = health - 1;
+      }
+    }
+    if (u==0) {
+      ozy = ozy + 20;     //moves zombie with up scroll
+    }
+    if (d==0) {
+      ozy = ozy - 20;     //moves zombie with down scroll
+    }
+    if (l==0) {
+      ozx = ozx + 20;     //moves zombie with side scroll
+    }
+    if (r==0) {
+      ozx = ozx - 20;     //moves zombie with side scroll
+    }
+    resetMatrix();     //resets the origin
+  }
+}
